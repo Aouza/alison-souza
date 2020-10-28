@@ -69,7 +69,7 @@ export const Wrapper = styled.div`
     ${({ isMobile }) =>
       isMobile &&
       css`
-        display: block;
+        display: flex;
       `}
   }
 

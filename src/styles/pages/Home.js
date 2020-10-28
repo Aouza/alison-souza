@@ -7,6 +7,10 @@ export const Container = styled.main`
   @media (max-height: 625px) {
     padding: 2rem 0;
   }
+
+  @media (max-width: 52rem) {
+    padding: 3rem 0;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -149,6 +153,10 @@ export const HeroHeader = styled.div`
 
     > p {
       font-size: 0.8rem;
+    }
+
+    > img {
+      width: 6rem;
     }
   }
 

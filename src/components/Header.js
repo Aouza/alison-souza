@@ -13,7 +13,7 @@ import Link from "next/link";
 import Menu from "components/Menu/Menu";
 import { Container, Wrapper, Logo } from "styles/components/Header";
 import { MenuContext } from "context/Context";
-import { gsap, TimelineMax, Power3, TweenMax, Expo } from "gsap";
+import { gsap, Power3, Expo } from "gsap";
 
 const Header = forwardRef((props, ref) => {
   const { openMenu, setOpenMenu } = useContext(MenuContext);
