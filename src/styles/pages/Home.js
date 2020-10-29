@@ -116,7 +116,7 @@ export const HeroHeader = styled.div`
     border-radius: 0.3rem;
   }
 
-  @media (max-height: 625px) {
+  @media (max-height: 657px) {
     > img {
       width: 8rem;
     }
