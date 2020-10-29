@@ -7,12 +7,12 @@ import {
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
-import { TimelineLite, Power3, TweenMax, Expo } from "gsap";
+import { gsap, Power3, Elastic, Circ, TweenMax, Expo } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ImageAvatar from "assets/images/head.png";
 import AboutImage from "assets/images/portfolio-perfil.jpg";
-import ItemPortfolio from "assets/images/item-portfolio.jpg";
 import ContactImage from "assets/images/et-contact.svg";
-
+import PortfolioContent from "components/PortfolioContent/PortfolioContent";
 import Techs from "components/Techs/Techs";
 import Header from "components/Header";
 import BoxOverlay from "components/BoxOverlay";
@@ -26,7 +26,6 @@ import {
   AboutContent,
   ImageAbout,
   PortfolioSection,
-  PortfolioContent,
   TechsSection,
   ContactSection,
   ImageContact,
@@ -44,6 +43,17 @@ const Home = () => {
   let overlay2Ref = useRef();
   let overlay3Ref = useRef();
   let socialRef = useRef();
+  let aboutTextRef = useRef();
+  let aboutImage = useRef();
+  // let imagePortfolio = useRef();
+  let textPortfolioRef = useRef();
+  let envelopeRef = useRef();
+  let phoneRef = useRef();
+  let socialFooterRef = useRef();
+  let contactRef = useRef();
+  let techsRef = useRef();
+
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     const logoImage = headerRef.firstElementChild.firstElementChild;
@@ -55,6 +65,128 @@ const Home = () => {
     const availableText = contentRef.children[4];
     const callButton = contentRef.children[5];
     const socialButtons = socialRef.children;
+    const textPortfolio = textPortfolioRef.children;
+
+    console.log(techsRef);
+
+    gsap.from(techsRef.children, {
+      y: 200,
+      opacity: 0,
+      stagger: 0.4,
+      ease: Circ.easeOut,
+      scrollTrigger: {
+        trigger: techsRef.children,
+        start: "top 100%",
+        end: "top 70%",
+        scrub: 2,
+        id: "tech",
+      },
+    });
+
+    gsap.from(contactRef.children, {
+      y: "10%",
+      opacity: 0,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: contactRef.children,
+        start: "top 100%",
+        end: "top 70%",
+        scrub: 2,
+        id: "contact",
+      },
+    });
+
+    gsap.from(socialFooterRef.children, {
+      y: "-10%",
+      opacity: 0,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: socialFooterRef.children,
+        start: "top 100%",
+        end: "top 90%",
+        scrub: 2,
+        id: "scrub",
+      },
+    });
+
+    gsap.from(envelopeRef.children, {
+      x: "-10%",
+      opacity: 0,
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: envelopeRef.children,
+        start: "top 100%",
+        end: "top 70%",
+        scrub: 2,
+        id: "scrub",
+      },
+    });
+
+    gsap.from(phoneRef.children, {
+      x: "-10%",
+      opacity: 0,
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: phoneRef.children,
+        start: "top 100%",
+        end: "top 70%",
+        scrub: 2,
+        id: "scrub",
+      },
+    });
+
+    gsap.from(aboutImage, {
+      x: "100%",
+      duration: 5,
+      scale: 1.5,
+      rotate: 0,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: aboutImage,
+        start: "top 80%",
+        end: "top 30%",
+        scrub: 1,
+        id: "scrub",
+      },
+    });
+
+    gsap.from(textPortfolio, {
+      y: 100,
+      opacity: 0,
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: textPortfolio,
+        start: "top 80%",
+        end: "top 30%",
+        scrub: 1,
+        id: "portText",
+      },
+    });
+
+    // gsap.from(imagePortfolio, {
+    //   perspective: "100rem",
+    //   rotateY: "55deg",
+    //   scrollTrigger: {
+    //     trigger: imagePortfolio,
+    //     start: "top 80%",
+    //     end: "top 30%",
+    //     scrub: 1,
+    //     id: "portImage",
+    //   },
+    // });
+
+    gsap.from(aboutTextRef, {
+      y: 100,
+      opacity: 0,
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: aboutTextRef,
+        start: "top 90%",
+        end: "top 20%",
+        scrub: 1,
+        id: "scrub",
+      },
+    });
 
     TweenMax.from(logoImage, 1, {
       delay: 1.2,
@@ -210,7 +342,7 @@ const Home = () => {
 
         <AboutSection>
           <Wrapper>
-            <AboutContent>
+            <AboutContent ref={(el) => (aboutTextRef = el)}>
               <SecondaryTitle>Lorem ipsum.</SecondaryTitle>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
@@ -230,99 +362,24 @@ const Home = () => {
             </AboutContent>
 
             <ImageAbout>
-              <img src={AboutImage} alt="Alison Souza" />
+              <img
+                ref={(el) => (aboutImage = el)}
+                src={AboutImage}
+                alt="Alison Souza"
+              />
             </ImageAbout>
           </Wrapper>
         </AboutSection>
 
         <PortfolioSection>
-          <Wrapper>
+          <Wrapper ref={(el) => (textPortfolioRef = el)}>
             <SecondaryTitle>Alguns dos meus jobs</SecondaryTitle>
-
-            <PortfolioContent>
-              <div>
-                <h2>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                  corrupti doloremque iusto consequatur mollitia nesciunt cum
-                  minus eos minima, quo vel natus illo illum adipisci saepe
-                  placeat hic vero sed?
-                </p>
-
-                <a href="https://alumia.netlify.app">
-                  Visite alumia.netlify.app
-                </a>
-              </div>
-
-              <img src={ItemPortfolio} alt="Alumia" />
-            </PortfolioContent>
-
-            <PortfolioContent>
-              <div>
-                <h2>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                  corrupti doloremque iusto consequatur mollitia nesciunt cum
-                  minus eos minima, quo vel natus illo illum adipisci saepe
-                  placeat hic vero sed?
-                </p>
-
-                <a href="https://alumia.netlify.app">
-                  Visite alumia.netlify.app
-                </a>
-              </div>
-
-              <img src={ItemPortfolio} alt="Alumia" />
-            </PortfolioContent>
-
-            <PortfolioContent>
-              <div>
-                <h2>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                  corrupti doloremque iusto consequatur mollitia nesciunt cum
-                  minus eos minima, quo vel natus illo illum adipisci saepe
-                  placeat hic vero sed?
-                </p>
-
-                <a href="https://alumia.netlify.app">
-                  Visite alumia.netlify.app
-                </a>
-              </div>
-
-              <img src={ItemPortfolio} alt="Alumia" />
-            </PortfolioContent>
-
-            <PortfolioContent>
-              <div>
-                <h2>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-                  corrupti doloremque iusto consequatur mollitia nesciunt cum
-                  minus eos minima, quo vel natus illo illum adipisci saepe
-                  placeat hic vero sed?
-                </p>
-
-                <a href="https://alumia.netlify.app">
-                  Visite alumia.netlify.app
-                </a>
-              </div>
-
-              <img src={ItemPortfolio} alt="Alumia" />
-            </PortfolioContent>
+            <PortfolioContent />
           </Wrapper>
         </PortfolioSection>
 
         <TechsSection>
-          <Wrapper>
+          <Wrapper ref={(el) => (techsRef = el)}>
             <SecondaryTitle>Minhas skills</SecondaryTitle>
 
             <Techs />
@@ -330,7 +387,7 @@ const Home = () => {
         </TechsSection>
 
         <ContactSection>
-          <Wrapper>
+          <Wrapper ref={(el) => (contactRef = el)}>
             <SecondaryTitle>Me fale um oi</SecondaryTitle>
 
             <div>
@@ -338,25 +395,25 @@ const Home = () => {
                 <p>
                   Estou sempre aberto para discutir seu projeto. <br />
                   Entre em contato e vamos entender o melhor caminho para
-                  criarmos o melhor job para você.
+                  criarmos o melhor projeto para você.
                 </p>
                 <p>
                   Envie um e-mail para mim em: <br />
-                  <span>
-                    <FaEnvelope /> alison-cruz@hotmail.com
-                  </span>
+                  <div ref={(el) => (envelopeRef = el)}>
+                    <FaEnvelope /> <span>alison-cruz@hotmail.com </span>
+                  </div>
                 </p>
 
                 <p>
                   Estou disponível pelo número: <br />
-                  <span>
-                    <FaPhoneAlt /> 11 97797-5522
-                  </span>
+                  <div ref={(el) => (phoneRef = el)}>
+                    <FaPhoneAlt /> <span>11 97797-5522</span>
+                  </div>
                 </p>
                 <p>
                   Sigam-me os bons.
                   <br />
-                  <div>
+                  <div ref={(el) => (socialFooterRef = el)}>
                     <FaGithub />
                     <FaLinkedinIn />
                     <FaInstagram />

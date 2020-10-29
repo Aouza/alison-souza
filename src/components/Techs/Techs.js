@@ -1,5 +1,4 @@
 import React from "react";
-
 import HTML5Image from "assets/images/techs-icons/html5-icon.png";
 import CSS3Image from "assets/images/techs-icons/css3-icon.png";
 import JavascriptImage from "assets/images/techs-icons/javascript-icon.png";
