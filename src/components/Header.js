@@ -5,7 +5,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import ImageLogo from "assets/images/logo.png";
+import ImageLogo from "assets/images/logo.svg";
 import { menuItems } from "services/api";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";

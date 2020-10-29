@@ -290,7 +290,7 @@ export const TechsSection = styled.section`
 `;
 
 export const ContactSection = styled.section`
-  padding-top: 6rem;
+  padding-top: 8rem;
 
   > div > div {
     display: grid;

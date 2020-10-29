@@ -35,7 +35,12 @@ const ContactForm = () => {
         placeholder="Seu site se possuir"
       />
       <Input type="text" id="subject" name="subject" placeholder="Assunto" />
-      <textarea id="message" name="message" rows="10" />
+      <textarea
+        id="message"
+        name="message"
+        rows="10"
+        placeholder="Sua mensagem"
+      />
       <Button value="Enviar" />
     </Container>
   );

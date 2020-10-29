@@ -4,8 +4,12 @@ export const Container = styled.li`
   display: grid;
   align-items: center;
   grid-template-columns: 1fr auto;
-  margin: 2rem 0;
-  gap: 0 8rem;
+  gap: 4rem;
+  align-items: flex-start;
+  margin: 6rem 0;
+
+  & + li {
+  }
 
   > div {
     > h2 {
