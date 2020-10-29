@@ -1,5 +1,8 @@
 import React from "react";
 import ItemPortfolioImage from "assets/images/item-portfolio.jpg";
+import ItemPortfolioImageGithub from "assets/images/item-portfolio-master-github.jpg";
+import ItemPortfolioImageCompanyme from "assets/images/item-portfolio-companyme.jpg";
+import ItemPortfolioImageWith from "assets/images/item-portfolio-withmakeup.jpg";
 import { Container } from "styles/components/PortfolioContent/PortfolioContent";
 import Portfolio from "./Portfolio";
 
@@ -20,7 +23,7 @@ const PortfolioContent = () => {
         </div>
       </Portfolio>
 
-      <Portfolio image={ItemPortfolioImage}>
+      <Portfolio image={ItemPortfolioImageGithub}>
         <div>
           <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
           <p>
@@ -34,7 +37,7 @@ const PortfolioContent = () => {
         </div>
       </Portfolio>
 
-      <Portfolio image={ItemPortfolioImage}>
+      <Portfolio image={ItemPortfolioImageCompanyme}>
         <div>
           <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
           <p>
@@ -48,7 +51,7 @@ const PortfolioContent = () => {
         </div>
       </Portfolio>
 
-      <Portfolio image={ItemPortfolioImage}>
+      <Portfolio image={ItemPortfolioImageWith}>
         <div>
           <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
           <p>
