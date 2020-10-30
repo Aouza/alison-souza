@@ -11,4 +11,15 @@ export const Container = styled.button`
   font-weight: 900;
   letter-spacing: 0.1rem;
   box-shadow: 10px 10px 10px #24dec026;
+  position: relative;
+
+  > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    > svg {
+      color: var(--main-color-white);
+    }
+  }
 `;

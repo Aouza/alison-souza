@@ -114,6 +114,30 @@ export const HeroHeader = styled.div`
     margin: 1rem 0 2rem 0;
     letter-spacing: 1.4px;
     border-radius: 0.3rem;
+    position: relative;
+
+    &:hover div,
+    &focus div {
+      width: 100%;
+    }
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--main-color-white);
+      transition: 1s width cubic-bezier(0.85, 0, 0.15, 1);
+
+      > svg {
+        color: var(--main-color-white);
+        font-size: 1rem;
+      }
+    }
   }
 
   @media (max-height: 657px) {

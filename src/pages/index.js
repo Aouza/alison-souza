@@ -326,7 +326,12 @@ const Home = () => {
               </div>
             </p>
             <span>disponível para jobs</span>
-            <button>Contate-me</button>
+            <button>
+              <div>
+                <FaEnvelope />
+              </div>
+              Contate-me
+            </button>
           </HeroHeader>
 
           <SocialGroup ref={(el) => (socialRef = el)}>
