@@ -321,7 +321,7 @@ const Home = () => {
               <div>
                 <span>
                   As stacks Javascript fazem meus olhos brilharem! obrigado
-                  ReactjS.
+                  ReactJS.
                 </span>
               </div>
             </p>
